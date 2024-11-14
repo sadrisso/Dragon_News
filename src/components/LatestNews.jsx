@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const LatestNews = () => {
     return (
-        <div className="container flex mx-auto items-center gap-2 p-2 bg-base-200">
+        <div className="flex items-center gap-2 p-2 bg-base-200">
             <div className="bg-[#D72050] text-white px-4 py-2">
                 Latest
             </div>

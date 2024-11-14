@@ -7,14 +7,13 @@ import Navbar from "../components/Navbar";
 
 
 const HomeLayout = () => {
+
     return (
         <div className="font-poppins">
             {/* header */}
-            <header>
+            <header className="container mx-auto">
                 <Header />
-                <section>
-                    <LatestNews />
-                </section>
+                <LatestNews />
             </header>
 
             {/* navbar */}
@@ -23,7 +22,7 @@ const HomeLayout = () => {
             </nav>
 
             {/* main */}
-            <main className="container mx-auto py-5 grid grid-cols-12 gap-5">
+            <main className="container mx-auto py-5 grid md:grid-cols-12 gap-5">
                 <aside className="col-span-3">
                     <LeftNavbar />
                 </aside>
@@ -37,5 +36,6 @@ const HomeLayout = () => {
         </div>
     );
 };
+
 
 export default HomeLayout;
