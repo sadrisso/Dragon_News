@@ -19,7 +19,7 @@ const LeftNavbar = () => {
             <div className="font-semibold text-xl mb-4">Categories ({categories.length})</div>
             <div className="flex flex-col gap-2">
                 {categories.map((res) =>
-                    <NavLink to={`categories/${res.category_id}`} className="btn rounded-none bg-base-100">{res.category_name}</NavLink>
+                    <NavLink to={`category/${res.category_id}`} className="btn rounded-none bg-base-100">{res.category_name}</NavLink>
                 )}
             </div>
         </>
