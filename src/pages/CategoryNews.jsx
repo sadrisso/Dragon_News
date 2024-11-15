@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { CiBookmark } from "react-icons/ci";
 import { CiShare2 } from "react-icons/ci";
 
@@ -36,6 +36,7 @@ const CategoryNews = () => {
                             src={singleNews.image_url}
                             alt="Shoes" />
                     </figure>
+                    <Link className="text-blue-600 underline my-5" to={`/news/${singleNews._id}`}>See full news details</Link>
                 </div>
             )}
             </p>
