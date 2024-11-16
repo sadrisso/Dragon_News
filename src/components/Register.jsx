@@ -1,25 +1,36 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Register = () => {
 
     const { createNewUser, setUser } = useContext(AuthContext)
+    const [error, setError] = useState({})
 
     const handleRegister = (e) => {
         e.preventDefault();
 
         const name = e.target.name.value;
+        if (name.length < 6) {
+            setError({ ...error, name: "name must be 6 charactar or long" })
+            return;
+        }
         const photoUrl = e.target.photoUrl.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
+        if (password.length < 6) {
+            setError({ ...error, password: "password must be 6 charactar or long" })
+            return;
+        }
 
         createNewUser(email, password)
             .then((res) => {
                 console.log(res)
                 setUser(res)
             })
-            .catch((err) => console.log(err.message))
+            .catch((err) => {
+                console.log(err.message)
+            })
     }
 
 
@@ -39,6 +50,11 @@ const Register = () => {
                         placeholder="name"
                         className="input input-bordered"
                         required />
+                    {error.name &&
+                        <label className="label text-red-500">
+                            {error.name}
+                        </label>
+                    }
                 </div>
                 <div className="form-control">
                     <label className="label">
@@ -72,6 +88,11 @@ const Register = () => {
                         placeholder="password"
                         className="input input-bordered"
                         required />
+                    {error.password &&
+                        <label className="label text-red-500">
+                            {error.password}
+                        </label>
+                    }
                 </div>
                 <div className="form-control mt-6">
                     <button className="btn btn-primary">Register</button>
