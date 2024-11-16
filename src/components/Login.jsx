@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 
@@ -16,7 +16,9 @@ const Login = () => {
         console.log(email, password)
 
         signInUser(email, password)
-            .then((res) => console.log("Successfully login", res))
+            .then((res) => {
+                console.log("Successfully login", res)
+            })
             .catch((err) => console.log(err))
     }
 
